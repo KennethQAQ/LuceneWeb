@@ -21,7 +21,7 @@ public class IndexBuilder {
         //builder.filedIndex();
         builder.commonIndex();
     }
-    public void filedIndex() throws Exception{
+    public void filedIndex() throws Exception{ // 有时候报错，不用这个
         Analyzer textAnalyzer=new SimpleAnalyzer();
         IndexWriterConfig conf = new IndexWriterConfig(textAnalyzer);
         conf.setOpenMode(IndexWriterConfig.OpenMode.CREATE);
@@ -71,7 +71,7 @@ public class IndexBuilder {
         System.out.println("build index success");
         writer.close();
     }
-    public void commonIndex() throws Exception{
+    public void commonIndex() throws Exception{ // 主要使用此方法建立索引
         Analyzer textAnalyzer=new SimpleAnalyzer();
         IndexWriterConfig conf = new IndexWriterConfig(textAnalyzer);
         conf.setOpenMode(IndexWriterConfig.OpenMode.CREATE);
@@ -90,11 +90,11 @@ public class IndexBuilder {
             TextField title = new TextField("title",pdfContents[0],Field.Store.YES);
             TextField author = new TextField("author",pdfContents[0],Field.Store.YES);
             TextField content = new TextField("contents",contents,Field.Store.YES);
-            doc.add(content);
-            doc.add(title);
-            doc.add(author);
-            doc.add(fileName);
-            doc.add(pathField);
+            doc.add(content); //全文
+            doc.add(title); //标题＋作者
+            doc.add(author); //标题＋作者
+            doc.add(fileName); //文件名
+            doc.add(pathField); //文件路径
             //doc.add(title);
             //doc.add(new TextField("contents", new FileReader(file)));
             writer.addDocument(doc);

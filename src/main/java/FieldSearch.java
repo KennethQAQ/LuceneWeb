@@ -25,10 +25,11 @@ import java.nio.file.Paths;
 
 public class FieldSearch {
     public static void main(String[] args) throws Exception {
+        // 测试
         FieldSearch f = new FieldSearch();
         f.search("computer");
     }
-
+    // 检索方法
     public void search(String key) throws Exception {
         IndexReader reader = DirectoryReader.open(FSDirectory.open(Paths.get(IndexBuilder.indexDir)));
         IndexSearcher is = new IndexSearcher(reader);

@@ -32,7 +32,7 @@ public class PdfReader {
         stripper.setEndPage(pages);
         String content = stripper.getText(document);
         // System.out.println(content);
-        String regex = "ABSTRACT|Keywords|KEYWORDS|INTRODUCTION|REFERENCES";
+        String regex = "ABSTRACT";
         String[] split = content.split(regex);
         return split;
     }

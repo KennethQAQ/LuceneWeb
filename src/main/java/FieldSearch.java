@@ -48,7 +48,9 @@ public class FieldSearch {
         for (int i = 0; i < sdoc.length; i++) {
             doc = is.doc(sdoc[i].doc);
             String name = doc.get("path");
+            String title= doc.get("title");
             System.out.println(name + " socre:" + sdoc[i].score);
+            System.out.println(title);
         }
 
     }

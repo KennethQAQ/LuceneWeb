@@ -86,8 +86,13 @@ public class IndexBuilder {
             Field fileName = new StringField("fileName", file.getName(),Field.Store.YES);
             Field pathField = new StringField("path", file.getPath(),Field.Store.YES);
             String contents = PdfReader.ReadPdfAll(file.getPath());
+            String[] pdfContents = PdfReader.ReadPdf(file.getPath());
+            TextField title = new TextField("title",pdfContents[0],Field.Store.YES);
+            TextField author = new TextField("author",pdfContents[0],Field.Store.YES);
             TextField content = new TextField("contents",contents,Field.Store.YES);
             doc.add(content);
+            doc.add(title);
+            doc.add(author);
             doc.add(fileName);
             doc.add(pathField);
             //doc.add(title);

@@ -4,6 +4,7 @@
 /.settings/
 /.vscode/
 /bin/
+/src/main/resources/pdf/www2016
 
 .classpath
 .project
